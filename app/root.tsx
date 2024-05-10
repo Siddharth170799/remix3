@@ -5,6 +5,16 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import styles from "/app/Styles/style.css"
+import Home from "./routes/Home";
+import { LinksFunction } from "@remix-run/node";
+import { LiveReload } from "@remix-run/react";
+// import ToDoList from "./routes/ToDoApp";
+
+ export  function links(){
+  return [{rel:"stylesheet",href:styles}]
+   
+ }
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,11 +29,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        <LiveReload />
       </body>
     </html>
   );
 }
 
 export default function App() {
-  return <Outlet />;
+  return(<> <Outlet />
+
+  {/* <Home/> */}
+  </>)
+  
 }
